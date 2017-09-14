@@ -1,0 +1,10 @@
+Go to Windows Start icon
+Search for "Anaconda (64 bit)" application folder and expand
+Right-click on "Anaconda Prompt" and  "Run as Administrator"
+
+Type this line on the Anaconda command prompt followed by Enter: conda install beautifulsoup4
+
+When writing Python code import BeautifulSoup package using this import statement:
+import bs4 as bsoup
+
+The last word serves as your "handle" for Beautifulsoup commands.  You can use any word you want.  Shorter words have the benefit of requiring less typing.

@@ -39,6 +39,13 @@ z = [3, 2, 1]
 z.sort()
 z.sort(reverse=True)
 z
+# Definition of countries and capital
+countries = ['spain', 'france', 'germany', 'norway']
+capitals = ['madrid', 'paris', 'berlin', 'oslo']
+# Get index of 'germany': ind_ger
+ind_ger = capitals[countries.index('germany')]
+# Use ind_ger to print out capital of Germany
+print(ind_ger)
 
 
 ## tuples
@@ -55,7 +62,6 @@ print(income)
 
 
 ## dictionaries
-## like a map 
 captains = {}
 captains["Enterprise"] = "Kirk"
 captains["Enterprise D"] = "Picard"
@@ -65,7 +71,7 @@ print(captains["Voyager"])
 print(captains.get("NX-01"))
 for ship in captains:
     print(ship + ": " + captains[ship])
-    
+
 
 ## functions
 def SquareIt(x):

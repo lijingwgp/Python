@@ -71,6 +71,15 @@ print(captains["Voyager"])
 print(captains.get("NX-01"))
 for ship in captains:
     print(ship + ": " + captains[ship])
+# Definition of countries and capital
+countries = ['spain', 'france', 'germany', 'norway']
+capitals = ['madrid', 'paris', 'berlin', 'oslo']
+# From string in countries and capitals, create dictionary europe
+europe = {}
+for i in range(4):
+    europe.update({countries[i]:capitals[i]})
+# Print out the keys in europe
+europe.keys()
 
 
 ## functions
@@ -95,7 +104,7 @@ elif 1 > 3:
     print("Yikes")
 else:
     print("All is well with the world")
-    
+
 
 ## looping
 for x in range(10):

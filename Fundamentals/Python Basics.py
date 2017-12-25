@@ -80,6 +80,12 @@ for i in range(4):
     europe.update({countries[i]:capitals[i]})
 # Print out the keys in europe
 europe.keys()
+# Add italy to europe
+europe['italy'] = 'rome'
+# Update capital of germany
+europe['germany'] = 'berlin'
+# Remove australia
+del(europe['australia']
 
 
 ## functions

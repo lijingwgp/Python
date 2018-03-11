@@ -64,5 +64,4 @@ class MovieSimilarities2(MRJob):
 if __name__ == '__main__':
     MovieSimilarities2.run()
     
-    
 #!python teamAssignment1.py --items=ml-100k/u.item ml-100k/u.data > movieRatings.txt  

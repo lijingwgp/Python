@@ -71,13 +71,3 @@ j = lambda x:x[1][0]
 j(item[0])
 item.sort(key=j)
 item
-
-
-
-
-
-
-
-
-
-

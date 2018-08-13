@@ -8,24 +8,102 @@
 # Each dictionary key is a column label and each value is a list which contains the column elements.
 
 
+# Definition of countries and capital
+countries = ['spain', 'france', 'germany', 'norway']
+capitals = ['madrid', 'paris', 'berlin', 'oslo']
+# Get index of 'germany': ind_ger
+ind_ger = countries.index('germany')
+# Use ind_ger to print out capital of Germany
+print(capitals[ind_ger])
+
+
+# Definition of countries and capital
+countries = ['spain', 'france', 'germany', 'norway']
+capitals = ['madrid', 'paris', 'berlin', 'oslo']
+# From string in countries and capitals, create dictionary europe
+europe = {}
+for i in range(4):
+    europe.update({countries[i]:capitals[i]})
+# Print europe
+print(europe)
+
+
+# Definition of dictionary
+europe = {'spain':'madrid', 'france':'paris', 'germany':'berlin', 'norway':'oslo' }
+# Print out the keys in europe
+print(europe.keys())
+# Print out value that belongs to key 'norway'
+print(europe['norway'])
+
+
+# Definition of dictionary
+europe = {'spain':'madrid', 'france':'paris', 'germany':'berlin', 'norway':'oslo' }
+# Add italy to europe
+europe['italy'] = 'rome'
+# Print out italy in europe
+print('italy' in europe)
+# Add poland to europe
+europe['poland'] = 'warsaw'
+# Print europe
+print(europe)
+
+
+# Definition of dictionary
+europe = {'spain':'madrid', 'france':'paris', 'germany':'bonn',
+          'norway':'oslo', 'italy':'rome', 'poland':'warsaw',
+          'australia':'vienna' }
+# Update capital of germany
+europe['germany'] = 'berlin'
+# Remove australia
+del(europe['australia'])
+# Print europe
+print(europe)
+
+
+# Dictionary of dictionaries
+europe = { 'spain': { 'capital':'madrid', 'population':46.77 },
+           'france': { 'capital':'paris', 'population':66.03 },
+           'germany': { 'capital':'berlin', 'population':80.62 },
+           'norway': { 'capital':'oslo', 'population':5.084 } }
+# Print out the capital of France
+print(europe['france']['capital'])
+# Create sub-dictionary data
+data = {'capital':'rome','population':59.83}
+# Add data to europe under key 'italy'
+europe['italy'] = data
+# Print europe
+print(europe)
+
+
+# Dictionary to dataframe 1
 # Pre-defined lists
 import pandas as pd
 names = ['United States', 'Australia', 'Japan', 'India', 'Russia', 'Morocco', 'Egypt']
 dr =  [True, False, False, False, True, True, True]
 cpc = [809, 731, 588, 18, 200, 70, 45]
-
-# Create dictionary my_dict with three key:value pairs: my_dict
 temp = ['country','drives_right','cars_per_cap']
+# Create dictionary my_dict with three key:value pairs: my_dict
 my_dict = {temp[0]:names,temp[1]:dr,temp[2]:cpc}
-
 # Build a DataFrame cars from my_dict: cars
 cars = pd.DataFrame(my_dict)
+# Print cars
+print(cars)
 
+
+# Dictionary to dataframe 2
+# Build cars DataFrame
+names = ['United States', 'Australia', 'Japan', 'India', 'Russia', 'Morocco', 'Egypt']
+dr =  [True, False, False, False, True, True, True]
+cpc = [809, 731, 588, 18, 200, 70, 45]
+dict = { 'country':names, 'drives_right':dr, 'cars_per_cap':cpc }
+cars = pd.DataFrame(dict)
+print(cars)
 # Definition of row_labels
 row_labels = ['US', 'AUS', 'JAP', 'IN', 'RU', 'MOR', 'EG']
-
 # Specify row labels of cars
 cars.index=row_labels
+# Print cars again
+print(cars)
 
 
 # Putting data in a dictionary and then building a DataFrame works, but it's not very efficient. 

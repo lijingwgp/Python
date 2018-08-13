@@ -123,6 +123,8 @@ print(cars[['country']])
 print(cars[['country','drives_right']])
 # Print out first 3 observations
 print(cars[:3])
+# Print out fourth, fifth and sixth observation
+print(cars[3:6])
 
 
 # With loc and iloc you can do practically any data selection operation on 

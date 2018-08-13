@@ -1,33 +1,29 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Dec 25 12:49:15 2017
-
-@author: Jing
-"""
-
 # Pandas is an open source library, providing high-performance, 
 # easy-to-use data structures and data analysis tools for Python. 
-
+#
 # The DataFrame is one of Pandas' most important data structures. 
 # It's basically a way to store tabular data where you can label the rows and the columns. 
 # One way to build a DataFrame is from a dictionary.
-
+#
 # Each dictionary key is a column label and each value is a list which contains the column elements.
 
 
 # Pre-defined lists
+import pandas as pd
 names = ['United States', 'Australia', 'Japan', 'India', 'Russia', 'Morocco', 'Egypt']
 dr =  [True, False, False, False, True, True, True]
 cpc = [809, 731, 588, 18, 200, 70, 45]
-# Import pandas as pd
-import pandas as pd
+
 # Create dictionary my_dict with three key:value pairs: my_dict
 temp = ['country','drives_right','cars_per_cap']
 my_dict = {temp[0]:names,temp[1]:dr,temp[2]:cpc}
+
 # Build a DataFrame cars from my_dict: cars
 cars = pd.DataFrame(my_dict)
+
 # Definition of row_labels
 row_labels = ['US', 'AUS', 'JAP', 'IN', 'RU', 'MOR', 'EG']
+
 # Specify row labels of cars
 cars.index=row_labels
 

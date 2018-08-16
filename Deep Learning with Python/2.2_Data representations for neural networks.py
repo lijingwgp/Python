@@ -52,8 +52,8 @@ train_images.shape
 train_images.dtype
 
 # So what we have here is a 3D tensor of 8-bit integers. More precisely, it’s an array of
-# 60,000 matrices of 28 × 8 integers. Each such matrix is a grayscale image, with coefficients between 0
-# and 255.
+# 60,000 matrices of 28 × 8 integers. Each such matrix is a grayscale image, with coefficients
+# between 0 and 255.
 
 digit = train_images[4]
 import matplotlib.pyplot as plt
@@ -68,7 +68,8 @@ plt.imshow(digit, cmap=plt.cm.binary)
 my_slice = train_images[10:100]
 my_slice.shape
 
-# It’s equivalent to this more detailed notation, which specifies a start index and stop index for the slice along each tensor axis.
+# It’s equivalent to this more detailed notation, which specifies a start index and stop index for 
+# the slice along each tensor axis.
 
 my_slice = train_images[10:100, :, :]
 my_slice = train_images[10:100, 0:28, 0:28]

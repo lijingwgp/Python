@@ -68,7 +68,16 @@ plt.imshow(digit, cmap=plt.cm.binary)
 my_slice = train_images[10:100]
 my_slice.shape
 
+# It’s equivalent to this more detailed notation, which specifies a start index and stop index for the slice along each tensor axis.
+
+my_slice = train_images[10:100, :, :]
+my_slice = train_images[10:100, 0:28, 0:28]
+
 # The notion of data batches
+# In general, the first axis (axis 0, because indexing starts at 0) in all data tensors you’ll
+# come across in deep learning will be the samples axis (sometimes called the samples dimension). 
+# In the MNIST example, samples are images of digits.
+#
 # deep-learning models don’t process an entire dataset at once; rather,they break the data 
 # into small batches. Concretely, here’s one batch of our MNIST dig-its, with batch size of 128:
 

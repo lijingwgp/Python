@@ -10,8 +10,6 @@ Created on Mon Sep 10 10:44:01 2018
 #
 # This was the input data
 
-import theano
-import keras
 from keras.datasets import mnist
 from keras import models
 from keras import layers

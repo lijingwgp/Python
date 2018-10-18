@@ -53,7 +53,6 @@ def main():
 	AverageGrowthRate_w = .15
 	AdjustedUnits_w = .40
 
-
 	#P3 (.14)
 	TotalTrainingDays_w = .25
 	FranchiseEmployee_w = .10

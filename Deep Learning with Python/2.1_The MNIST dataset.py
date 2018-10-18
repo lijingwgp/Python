@@ -5,8 +5,6 @@ Created on Wed Aug 15 10:55:39 2018
 @author: jing.o.li
 """
 
-import theano
-import keras
 from keras.datasets import mnist
 from keras import models
 from keras import layers
@@ -62,7 +60,6 @@ network.compile(optimizer = 'rmsprop',
                 loss = 'categorical_crossentropy',
                 metrics = ['accuracy'])
 
-
 # Before training, we’ll preprocess the data by reshaping it into the shape the network expects 
 # and scaling it so that all values are in the [0,1] interval. Previously, our training images were
 # stored in an array of shape (60000,28,28) with values in [0,255]. We transform it into an array
@@ -82,7 +79,7 @@ network.fit(train_images, train_labels, epochs = 5, batch_size = 128)
 # two quantities are displayed during training: the loss of the network over the training data,
 # and the accuracy of the network over the training data.
 #
-# Now  let’scheck that the model performs well on the test set.
+# Now  let’s check that the model performs well on the test set.
 
-network.evaluate(test_images, test_labels)
-
+test_loss, test_acc = network.evaluate(test_images, test_labels)
+print('test_acc:', test_acc)

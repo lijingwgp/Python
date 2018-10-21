@@ -165,7 +165,7 @@ params
 train_set = lgb.Dataset(train_features, label = train_labels)
 
 # We set the number of boosting rounds very high, but we will not actually train 
-# this many estimators because we are using early stopping to stop training when the 
+# this many iterations because we are using early stopping to stop training when the 
 # validation score has not improved for 100 estimators.
 
 # Perform cross validation with 10 folds

@@ -36,7 +36,7 @@ decoded_review = ' '.join(
 ############################
 
 # Because you’re restricting yourself to the top 10,000 most frequent words,
-# no wordindex will exceed 10,000:
+# no word index will exceed 10,000:
 
 max([max(each) for each in train_data])
 

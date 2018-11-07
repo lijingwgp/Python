@@ -41,7 +41,7 @@ decoded_review = ' '.join(
 max([max(each) for each in train_data])
 
 # you can feed lists of integers into a neural network. you have to turn your lists into tensors. 
-#       1. pad your lists so that they all hae the same length, turn them into a 
+#       1. pad your lists so that they all have the same length, turn them into a 
 #          integer tensor of shape (sample, word_indices)
 #       2. one-hot encode your list to turn them into vectors of 0s and 1s
 

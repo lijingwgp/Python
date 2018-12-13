@@ -1,0 +1,17 @@
+n_estimators = [int(x) for x in np.linspace(start = 200, stop = 2000, num = 10)]
+max_depth = [int(x) for x in np.linspace(10, 110, num = 11)]
+
+{'bootstrap': [True, False]
+ 'criterion': 'entropy',
+ 'max_depth': max_depth,
+ 'max_features': ['auto','sqrt'],
+ 'min_samples_leaf': [1, 2, 4],
+ 'min_samples_split': [2, 5, 10],
+ 'n_estimators': n_estimators,
+ 'n_jobs': -1,
+ 'random_state': 8836,
+ 'verbose': 1}
+
+rf = RandomForestclassifier('should change your objective function to multiclass')
+rf_random = RandomizedSearchCV(estimator = rf, param_distributions = random_grid, n_iter = 50, cv = 3, verbose=1, random_state=8838, n_jobs = -1)
+rf_random.fit(x_train, y_train)

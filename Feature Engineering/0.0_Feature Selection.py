@@ -18,8 +18,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.exceptions import NotFittedError
 
 # Load data
-hist_data = pd.read_csv('LR_PRE_EDA1_120718.csv', low_memory=False)
-var_list = pd.read_csv('Var_Divide_12_11.csv', low_memory=False)
+hist_data = pd.read_csv('data1', low_memory=False)
+var_list = pd.read_csv('data2', low_memory=False)
 var_list1 = list(var_list.Name)
 hist_data1 = hist_data[var_list1]
 

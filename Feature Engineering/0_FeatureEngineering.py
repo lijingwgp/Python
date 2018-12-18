@@ -241,8 +241,7 @@ class FeatureSelector():
         """
 
         if early_stopping and eval_metric is None:
-            raise ValueError("""eval metric must be provided with early stopping. Examples include "auc" for classification or
-                             "l2" for regression.""")
+            raise ValueError("""eval metric must be provided with early stopping. Examples include "auc" for classification or "l2" for regression.""")
         
         if self.labels is None:
             raise ValueError("No training labels provided.")
@@ -410,7 +409,7 @@ class FeatureSelector():
                 Can be one of ['missing', 'single_unique', 'collinear', 'zero_importance', 'low_importance']
             keep_one_hot : boolean, default = True
                 Whether or not to keep one-hot encoded features
-                
+		
         Return
         --------
             data : dataframe

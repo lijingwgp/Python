@@ -18,7 +18,6 @@ Created on Tue Nov 13 13:36:13 2018
 
 
 
-
 ###################
 ### Preparation ###
 ###################
@@ -35,7 +34,6 @@ from sklearn.exceptions import NotFittedError
 from itertools import chain
 from sklearn.model_selection import train_test_split
 from sklearn.exceptions import NotFittedError
-
 
 
 
@@ -71,6 +69,7 @@ fs.missing_stats.head(10)
 
 ### single unique value
 # The next method is straightforward: find any features that have only a single unique value.
+# This does not one-hot encode variables.
 
 fs.identify_single_unique()
 single_unique = fs.ops['single_unique']
@@ -172,7 +171,6 @@ list(fs.ops)
 
 
 
-
 #########################
 ### Removing Features ###
 #########################
@@ -208,4 +206,3 @@ train_no_missing_zero = fs.remove(methods = ['missing', 'zero_importance'])
 train_removed_all = fs.remove(methods = 'all', keep_one_hot=False)
 print('Original Number of Features', train.shape[1])
 print('Final Number of Features: ', train_removed_all.shape[1])
-

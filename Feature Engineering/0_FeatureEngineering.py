@@ -24,7 +24,6 @@ class FeatureSelector():
     Class for performing feature selection for machine learning or data preprocessing.
     
     Implements five different methods to identify features for removal 
-    
         1. Find columns with a missing percentage greater than a specified threshold
         2. Find columns with a single unique value
         3. Find collinear variables with a correlation greater than a specified correlation coefficient

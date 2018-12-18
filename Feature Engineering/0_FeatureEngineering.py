@@ -217,16 +217,15 @@ class FeatureSelector():
         
         print('%d features with a correlation magnitude greater than %0.2f.\n' % (len(self.ops['collinear']), self.correlation_threshold))
 
-    def identify_zero_importance(self, task, eval_metric=None, 
-                                 n_iterations=10, early_stopping = True):
+    def identify_zero_importance(self, task, eval_metric=None, n_iterations=10, early_stopping = True):
         """
-        
         Identify the features with zero importance according to a gradient boosting machine.
         The gbm can be trained with early stopping using a validation set to prevent overfitting. 
         The feature importances are averaged over `n_iterations` to reduce variance. 
         
         Uses the LightGBM implementation (http://lightgbm.readthedocs.io/en/latest/index.html)
-        Parameters 
+        
+	Parameters 
         --------
         eval_metric : string
             Evaluation metric to use for the gradient boosting machine for early stopping. Must be
@@ -239,10 +238,8 @@ class FeatureSelector():
         early_stopping : boolean, default = True
             Whether or not to use early stopping with a validation set when training
         
-        
         Notes
         --------
-        
         - Features are one-hot encoded to handle the categorical variables before training.
         - The gbm is not optimized for any particular task and might need some hyperparameter tuning
         - Feature importances, including zero importance features, can change across runs
@@ -251,7 +248,7 @@ class FeatureSelector():
         if early_stopping and eval_metric is None:
             raise ValueError("""eval metric must be provided with early stopping. Examples include "auc" for classification or
                              "l2" for regression.""")
-            
+        
         if self.labels is None:
             raise ValueError("No training labels provided.")
         
@@ -333,7 +330,8 @@ class FeatureSelector():
         of the total feature importance from the gradient boosting machine. As an example, if cumulative
         importance is set to 0.95, this will retain only the most important features needed to 
         reach 95% of the total feature importance. The identified features are those not needed.
-        Parameters
+        
+	Parameters
         --------
         cumulative_importance : float between 0 and 1
             The fraction of cumulative importance to account for 
@@ -359,8 +357,7 @@ class FeatureSelector():
     
         print('%d features required for cumulative importance of %0.2f after one hot encoding.' % (len(self.feature_importances) -
                                                                             len(self.record_low_importance), self.cumulative_importance))
-        print('%d features do not contribute to cumulative importance of %0.2f.\n' % (len(self.ops['low_importance']),
-                                                                                               self.cumulative_importance))
+        print('%d features do not contribute to cumulative importance of %0.2f.\n' % (len(self.ops['low_importance']), self.cumulative_importance))
         
     def identify_all(self, selection_params):
         """
@@ -368,11 +365,9 @@ class FeatureSelector():
         
         Parameters
         --------
-            
         selection_params : dict
            Parameters to use in the five feature selection methhods.
            Params must contain the keys ['missing_threshold', 'correlation_threshold', 'eval_metric', 'task', 'cumulative_importance']
-        
         """
         
         # Check for all required parameters
@@ -391,11 +386,9 @@ class FeatureSelector():
         self.all_identified = set(list(chain(*list(self.ops.values()))))
         self.n_identified = len(self.all_identified)
         
-        print('%d total features out of %d identified for removal after one-hot encoding.\n' % (self.n_identified, 
-                                                                                                  self.data_all.shape[1]))
+        print('%d total features out of %d identified for removal after one-hot encoding.\n' % (self.n_identified, self.data_all.shape[1]))
         
     def check_removal(self, keep_one_hot=True):
-        
         """Check the identified features before removal. Returns a list of the unique features identified."""
         
         self.all_identified = set(list(chain(*list(self.ops.values()))))
@@ -410,7 +403,6 @@ class FeatureSelector():
         
         return list(self.all_identified)
         
-    
     def remove(self, methods, keep_one_hot = True):
         """
         Remove the features from the data according to the specified methods.
@@ -428,15 +420,12 @@ class FeatureSelector():
         --------
             data : dataframe
                 Dataframe with identified features removed
-                
         
         Notes 
         --------
             - If feature importances are used, the one-hot encoded columns will be added to the data (and then may be removed)
             - Check the features that will be removed before transforming data!
-        
         """
-        
         
         features_to_drop = []
       
@@ -495,7 +484,8 @@ class FeatureSelector():
     
     def plot_missing(self):
         """Histogram of missing fraction in each feature"""
-        if self.record_missing is None:
+        
+	if self.record_missing is None:
             raise NotImplementedError("Missing values have not been calculated. Run `identify_missing`")
         
         self.reset_plot()
@@ -508,7 +498,6 @@ class FeatureSelector():
         plt.xlabel('Missing Fraction', size = 14); plt.ylabel('Count of Features', size = 14); 
         plt.title("Fraction of Missing Values Histogram", size = 16);
         
-    
     def plot_unique(self):
         """Histogram of number of unique values in each feature"""
         if self.record_single_unique is None:
@@ -521,7 +510,6 @@ class FeatureSelector():
         plt.ylabel('Frequency', size = 14); plt.xlabel('Unique Values', size = 14); 
         plt.title('Number of Unique Values Histogram', size = 16);
         
-    
     def plot_collinear(self, plot_all = False):
         """
         Heatmap of the correlation values. If plot_all = True plots all the correlations otherwise
@@ -552,7 +540,6 @@ class FeatureSelector():
 
 	        title = "Correlations Above Threshold"
 
-       
         f, ax = plt.subplots(figsize=(10, 8))
         
         # Diverging colormap
@@ -575,9 +562,9 @@ class FeatureSelector():
         """
         Plots `plot_n` most important features and the cumulative importance of features.
         If `threshold` is provided, prints the number of features needed to reach `threshold` cumulative importance.
-        Parameters
-        --------
         
+	Parameters
+        --------
         plot_n : int, default = 15
             Number of most important features to plot. Defaults to 15 or the maximum number of features whichever is smaller
         

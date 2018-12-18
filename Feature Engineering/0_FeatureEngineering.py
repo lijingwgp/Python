@@ -41,7 +41,6 @@ class FeatureSelector():
     
     Attributes
     --------
-    
     ops : dict
         Dictionary of operations run and features identified for removal
         
@@ -74,10 +73,8 @@ class FeatureSelector():
     
     Notes
     --------
-    
         - All 5 operations can be run with the `identify_all` method.
         - If using feature importances, one-hot encoding is used for categorical variables which creates new columns
-    
     """
     
     def __init__(self, data, labels=None):

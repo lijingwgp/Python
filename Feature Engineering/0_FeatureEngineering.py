@@ -172,7 +172,6 @@ class FeatureSelector():
 
             # Add one hot encoded data to original data
             self.data_all = pd.concat([features[self.one_hot_features], self.data], axis = 1)
-            
             corr_matrix = pd.get_dummies(features).corr()
 
         else:

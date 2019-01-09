@@ -109,3 +109,41 @@ for column in to_drop_collinear:
                                       'corr_value': corr_values})
     # Add to dataframe
     record_collinear = record_collinear.append(temp_df, ignore_index = True)
+
+
+
+##########################################
+### Feature Engineering -- Aggregation ###
+##########################################
+
+temp = ['Q1','Q2','Q3','Q4']
+to_aggregate = [each for each in to_drop_collinear if ((each[-2:] in temp))]
+hist_data_temp = hist_data5[to_aggregate]
+hist_data_temp = hist_data_temp.fillna(0)
+hist_data_temp.to_csv('revenue_vars.csv', sep=',')
+hist_data_temp = pd.read_csv('revenue_vars.csv')
+
+hist_data6 = [each for each in hist_data5.columns if ((each[-2:] not in temp))]
+hist_data6 = hist_data5[hist_data6]
+hist_data6 = pd.concat([hist_data6, hist_data_temp], axis=1)
+hist_data6.to_csv('prepared.csv', sep=',')
+
+second_look = hist_data6.columns.groupby(hist_data6.dtypes)
+list(hist_data6.select_dtypes(include=['int64']))
+list(hist_data6.select_dtypes(include=['float64']))
+list(hist_data6.select_dtypes(include=['object']))
+
+
+
+######################
+### Sparse Columns ###
+######################
+
+prepared = pd.read_csv('Prepared.csv', low_memory=False)
+feature_a = list(prepared.select_dtypes(include=['int64']))
+feature_b = list(prepared.select_dtypes(include=['float64']))
+feature_a_result = prepared[feature_a].agg(['sum'])
+feature_b_result = prepared[feature_b].agg(['sum'])
+
+sparse1 = [each for each in feature_a_result.columns if (abs(feature_a_result[each]) < 100).any()]
+sparse2 = [each for each in feature_b_result.columns if (abs(feature_b_result[each]) < 100).any()]

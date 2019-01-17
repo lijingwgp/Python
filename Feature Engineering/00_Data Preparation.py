@@ -195,4 +195,4 @@ sparse = sparse1 + sparse2
 hist_data7 = [each for each in hist_data6.columns if each not in sparse]
 hist_data7 = hist_data6[hist_data7]
 del hist_data6
-hist_data7.to_csv('prepared.csv')
+hist_data7.to_csv('Prepared.csv')

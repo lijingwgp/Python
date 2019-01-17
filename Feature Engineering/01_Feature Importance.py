@@ -98,7 +98,6 @@ to_drop = list(record_low_importance['feature'])
 # =============================================================================
 # # Option 2 - LGBM internal encoding
 # cat_cols = list(data.select_dtypes(include=['object']).columns)
-# col = cat_cols[0]
 # for col in cat_cols:
 #     # convert column to categorical
 #     data[col] = pd.Categorical(data[col])

@@ -120,7 +120,7 @@ to_drop = list(record_low_importance['feature'])
 #             }
 # 
 # # Create model
-# clf = lgb.LGBMClassifier(n_estimators=1000, learning_rate = 0.05, objective = 'multiclass', num_class= 3,)
+# clf = lgb.LGBMClassifier(n_estimators=1000, learning_rate = 0.05, objective = 'multiclass', num_class= 3)
 # clf.fit(x_train,y_train,**fit_params)
 # 
 # # Plot feature importance

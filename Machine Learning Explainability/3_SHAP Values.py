@@ -20,9 +20,14 @@ my_model = RandomForestClassifier(random_state=0).fit(train_x, train_y)
 # We will look at SHAP values for a single row of the dataset (we arbitrarily chose row 5).
 # For context, we'll look at the raw predictions before looking at the SHAP values.
 
-row_to_show = 5
-data_for_prediction = val_x.iloc[row_to_show]
+# option1
+data_for_prediction = val_x.iloc[0]
 data_for_prediction_array = data_for_prediction.values.reshape(1,-1)
+my_model.predict_proba(data_for_prediction_array)
+
+# option2
+data_for_prediction = val_x.iloc[:10]
+data_for_prediction_array = data_for_prediction.values.reshape(10,-1)
 my_model.predict_proba(data_for_prediction_array)
 
 # The team is 70% likely to have a player win the award. Now we will move onto the 

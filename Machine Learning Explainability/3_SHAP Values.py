@@ -43,6 +43,9 @@ explainer = shap.TreeExplainer(my_model)
 shap_values = explainer.shap_values(data_for_prediction)
 shap_values
 
+# option3
+shap_values = explainer.shap_values(val_x)
+
 # The shap_values object above is a list with two arrays. The first array is the SHAP 
 # values for a negative outcome (don't win the award), and the second array is the 
 # list of SHAP values for the positive outcome (wins the award). We typically 
@@ -54,3 +57,4 @@ shap.force_plot(explainer.expected_value[1], shap_values[1], data_for_prediction
 # If we look carefully at the code where we are the SHAP values, we will notice that 
 # they are created by the tree explainer from the SHAP package. There are also two
 # other types of explainer, deep explainer and kernel explainer.
+

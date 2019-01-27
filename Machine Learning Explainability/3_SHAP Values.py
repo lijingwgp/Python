@@ -29,6 +29,7 @@ my_model.predict_proba(data_for_prediction_array)
 # code to get SHAP values for that single prediction.
 
 import shap
+shap.initjs()
 
 # create object that can calculate shap values
 explainer = shap.TreeExplainer(my_model)
@@ -43,7 +44,6 @@ shap_values
 # think about predictions in terms of the prediction of a positive outsome, so we 
 # will pull out Shap values for positive outcomes (shap_values[1])
 
-shap.initjs()
 shap.force_plot(explainer.expected_value[1], shap_values[1], data_for_prediction)
 
 # If we look carefully at the code where we are the SHAP values, we will notice that 

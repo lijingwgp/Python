@@ -1,13 +1,11 @@
-Install multiple python:
-
-conda create -n py36 python=3.6 anaconda
-activate py36
+# Install multiple python:
+conda create -n py35 python=3.5 anaconda
+activate py35
 spyder
 deactivate
 
 
-Create a new environment:
-
+# Create a new environment:
 pip install -U pip virtualenv
 virtualenv --system-site-packages -p python3 ./venv
 .\venv\Scripts\activate

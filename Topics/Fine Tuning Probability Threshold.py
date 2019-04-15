@@ -5,17 +5,17 @@ Created on Mon Apr 15 11:20:20 2019
 @author: jing.o.li
 """
 
-import numpy as np
-from sklearn.metrics import precision_recall_curve
-
-
 # funciton below computes precision-recall pairs for different probability thresholds
 # precision is the ability of detecting true positive
 # recall is the ability to find all positive samples
 
+import numpy as np
+from sklearn.metrics import precision_recall_curve
+
 y_true = np.array([0, 0, 1, 1])
 y_scores = np.array([0.1, 0.4, 0.35, 0.8])
 precision, recall, thresholds = precision_recall_curve(y_true, y_scores)
+
 
 
 # a few functions are created for conenient
@@ -57,6 +57,7 @@ def precision_recall_threshold(p, r, thresholds, t=0.5):
             markersize=15)
 
 
+    
 # 'adjusted_classes' is a simple function to return a modified version of y_scores
 # using a new probability threshold. the other function plots the precision and 
 # recall with respect to the given threshold probability.
@@ -81,6 +82,7 @@ def plot_precision_recall_vs_threshold(precisions, recalls, thresholds):
     plt.legend(loc='best')
 
 
+    
 # finally, the ROC curve can be ploted using the function below
 def plot_roc_curve(fpr, tpr, label=None):
     """

@@ -16,57 +16,73 @@ from keras import optimizers
 from keras.preprocessing.image import ImageDataGenerator
 import matplotlib.pyplot as plt
 
-train_dir = r"C:\Users\jing.o.li\Desktop\train"
-valid_dir = r"C:\Users\jing.o.li\Desktop\valid"
-test_dir = r"C:\Users\jing.o.li\Desktop\test"
+# directory where we will store our smaller dataset
+base_dir = r"C:\Users\jing.o.li\Desktop\cats_and_dogs_small"
+os.mkdir(base_dir)
 
-print('total training images:', len(os.listdir(train_dir)))
-print('total validation images:', len(os.listdir(valid_dir)))
-print('total test images:', len(os.listdir(test_dir)))
+# directory for train, validation, test split
+train_dir = os.path.join(base_dir, 'train')
+os.mkdir(train_dir)
+valid_dir = os.path.join(base_dir, 'validation')
+os.mkdir(validation_dir)
+test_dir = os.path.join(base_dir, 'test')
+os.mkdir(test_dir)
 
+# directory for training cat pictures
 train_cats_dir = os.path.join(train_dir, 'cats')
 os.mkdir(train_cats_dir)
+# directory for training dog pictures
 train_dogs_dir = os.path.join(train_dir, 'dogs')
 os.mkdir(train_dogs_dir)
+# directory for validation cat pictures
 valid_cats_dir = os.path.join(valid_dir, 'cats')
 os.mkdir(valid_cats_dir)
+# directory for validation dog pictures
 valid_dogs_dir = os.path.join(valid_dir, 'dogs')
 os.mkdir(valid_dogs_dir)
+# directory for test cat pictures
 test_cats_dir = os.path.join(test_dir, 'cats')
 os.mkdir(test_cats_dir)
+# directory for test dog pictures
 test_dogs_dir = os.path.join(test_dir, 'dogs')
 os.mkdir(test_dogs_dir)
 
+# copies for the first 1000 cat images to train_cats_dir
 fnames = ['cat.{}.jpg'.format(i) for i in range(1000)]
 for fname in fnames:
     src = os.path.join(train_dir, fname)
     dst = os.path.join(train_cats_dir, fname)
     shutil.copyfile(src, dst)
 
+# copies for the next 500 cat images to valid_cats_dir
 fnames = ['cat.{}.jpg'.format(i) for i in range(1000, 1500)]
 for fname in fnames:
     src = os.path.join(train_dir, fname)
     dst = os.path.join(valid_cats_dir, fname)
     shutil.copyfile(src, dst)
 
+# copies for the next 500 cat images to test_cats_dir
 fnames = ['cat.{}.jpg'.format(i) for i in range(1500, 2000)]
 for fname in fnames:
     src = os.path.join(train_dir, fname)
     dst = os.path.join(test_cats_dir, fname)
     shutil.copyfile(src, dst)
 
+# copies for the first 1000 cat images to train_dogs_dir
 fnames = ['dog.{}.jpg'.format(i) for i in range(1000)]
 for fname in fnames:
     src = os.path.join(train_dir, fname)
     dst = os.path.join(train_dogs_dir, fname)
     shutil.copyfile(src, dst)
 
+# copies for the next 500 cat images to valid_dogs_dir
 fnames = ['dog.{}.jpg'.format(i) for i in range(1000, 1500)]
 for fname in fnames:
     src = os.path.join(train_dir, fname)
     dst = os.path.join(valid_dogs_dir, fname)
     shutil.copyfile(src, dst)
 
+# copies for the next 500 cat images to test_dogs_dir
 fnames = ['dog.{}.jpg'.format(i) for i in range(1500, 2000)]
 for fname in fnames:
     src = os.path.join(train_dir, fname)

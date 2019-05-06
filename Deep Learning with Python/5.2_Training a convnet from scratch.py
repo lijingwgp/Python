@@ -103,12 +103,12 @@ print('total test dog images:', len(os.listdir(test_dogs_dir)))
 ##### Convnet Preparation #####
 ###############################
 
-#train_cats_dir = r"C:\Users\jing.o.li\Desktop\train\cats"
-#train_dogs_dir = r"C:\Users\jing.o.li\Desktop\train\dogs"
-#valid_cats_dir = r"C:\Users\jing.o.li\Desktop\valid\cats"
-#valid_dogs_dir = r"C:\Users\jing.o.li\Desktop\valid\dogs"
-#test_cats_dir = r"C:\Users\jing.o.li\Desktop\test\cats"
-#test_dogs_dir = r"C:\Users\jing.o.li\Desktop\test\dogs"
+#train_cats_dir = r"C:\Users\jing.o.li\Desktop\cats_and_dogs_small\train\cats"
+#train_dogs_dir = r"C:\Users\jing.o.li\Desktop\cats_and_dogs_small\train\dogs"
+#valid_cats_dir = r"C:\Users\jing.o.li\Desktop\cats_and_dogs_small\valid\cats"
+#valid_dogs_dir = r"C:\Users\jing.o.li\Desktop\cats_and_dogs_small\valid\dogs"
+#test_cats_dir = r"C:\Users\jing.o.li\Desktop\cats_and_dogs_small\test\cats"
+#test_dogs_dir = r"C:\Users\jing.o.li\Desktop\cats_and_dogs\test\dogs"
 
 # build a convnet
 model = models.Sequential()

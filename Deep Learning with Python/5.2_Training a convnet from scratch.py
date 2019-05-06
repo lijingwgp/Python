@@ -103,12 +103,12 @@ print('total test dog images:', len(os.listdir(test_dogs_dir)))
 ##### Convnet Preparation #####
 ###############################
 
-train_cats_dir = r"C:\Users\jing.o.li\Desktop\train\cats"
-train_dogs_dir = r"C:\Users\jing.o.li\Desktop\train\dogs"
-valid_cats_dir = r"C:\Users\jing.o.li\Desktop\valid\cats"
-valid_dogs_dir = r"C:\Users\jing.o.li\Desktop\valid\dogs"
-test_cats_dir = r"C:\Users\jing.o.li\Desktop\test\cats"
-test_dogs_dir = r"C:\Users\jing.o.li\Desktop\test\dogs"
+#train_cats_dir = r"C:\Users\jing.o.li\Desktop\train\cats"
+#train_dogs_dir = r"C:\Users\jing.o.li\Desktop\train\dogs"
+#valid_cats_dir = r"C:\Users\jing.o.li\Desktop\valid\cats"
+#valid_dogs_dir = r"C:\Users\jing.o.li\Desktop\valid\dogs"
+#test_cats_dir = r"C:\Users\jing.o.li\Desktop\test\cats"
+#test_dogs_dir = r"C:\Users\jing.o.li\Desktop\test\dogs"
 
 model = models.Sequential()
 model.add(layers.Conv2D(32, (3, 3), activation='relu',input_shape=(150, 150, 3)))

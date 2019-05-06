@@ -17,6 +17,7 @@ from keras.preprocessing.image import ImageDataGenerator
 import matplotlib.pyplot as plt
 
 # directory where we will store our smaller dataset
+origin_dir = r"C:\Users\jing.o.li\Desktop\cats_and_dogs_large"
 base_dir = r"C:\Users\jing.o.li\Desktop\cats_and_dogs_small"
 os.mkdir(base_dir)
 
@@ -50,42 +51,42 @@ os.mkdir(test_dogs_dir)
 # copies for the first 1000 cat images to train_cats_dir
 fnames = ['cat.{}.jpg'.format(i) for i in range(1000)]
 for fname in fnames:
-    src = os.path.join(train_dir, fname)
+    src = os.path.join(origin_dir, fname)
     dst = os.path.join(train_cats_dir, fname)
     shutil.copyfile(src, dst)
 
 # copies for the next 500 cat images to valid_cats_dir
 fnames = ['cat.{}.jpg'.format(i) for i in range(1000, 1500)]
 for fname in fnames:
-    src = os.path.join(train_dir, fname)
+    src = os.path.join(origin_dir, fname)
     dst = os.path.join(valid_cats_dir, fname)
     shutil.copyfile(src, dst)
 
 # copies for the next 500 cat images to test_cats_dir
 fnames = ['cat.{}.jpg'.format(i) for i in range(1500, 2000)]
 for fname in fnames:
-    src = os.path.join(train_dir, fname)
+    src = os.path.join(origin_dir, fname)
     dst = os.path.join(test_cats_dir, fname)
     shutil.copyfile(src, dst)
 
 # copies for the first 1000 cat images to train_dogs_dir
 fnames = ['dog.{}.jpg'.format(i) for i in range(1000)]
 for fname in fnames:
-    src = os.path.join(train_dir, fname)
+    src = os.path.join(origin_dir, fname)
     dst = os.path.join(train_dogs_dir, fname)
     shutil.copyfile(src, dst)
 
 # copies for the next 500 cat images to valid_dogs_dir
 fnames = ['dog.{}.jpg'.format(i) for i in range(1000, 1500)]
 for fname in fnames:
-    src = os.path.join(train_dir, fname)
+    src = os.path.join(origin_dir, fname)
     dst = os.path.join(valid_dogs_dir, fname)
     shutil.copyfile(src, dst)
 
 # copies for the next 500 cat images to test_dogs_dir
 fnames = ['dog.{}.jpg'.format(i) for i in range(1500, 2000)]
 for fname in fnames:
-    src = os.path.join(train_dir, fname)
+    src = os.path.join(origin_dir, fname)
     dst = os.path.join(test_dogs_dir, fname)
     shutil.copyfile(src, dst)
 

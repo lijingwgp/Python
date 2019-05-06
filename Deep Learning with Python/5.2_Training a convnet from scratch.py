@@ -19,6 +19,7 @@ import matplotlib.pyplot as plt
 train_dir = r"C:\Users\jing.o.li\Desktop\train"
 valid_dir = r"C:\Users\jing.o.li\Desktop\valid"
 test_dir = r"C:\Users\jing.o.li\Desktop\test"
+
 print('total training images:', len(os.listdir(train_dir)))
 print('total validation images:', len(os.listdir(valid_dir)))
 print('total test images:', len(os.listdir(test_dir)))

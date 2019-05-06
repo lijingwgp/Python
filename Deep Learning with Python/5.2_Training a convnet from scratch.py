@@ -25,17 +25,17 @@ print('total validation images:', len(os.listdir(valid_dir)))
 print('total test images:', len(os.listdir(test_dir)))
 
 train_cats_dir = os.path.join(train_dir, 'cats')
-#os.mkdir(train_cats_dir)
+os.mkdir(train_cats_dir)
 train_dogs_dir = os.path.join(train_dir, 'dogs')
-#os.mkdir(train_dogs_dir)
+os.mkdir(train_dogs_dir)
 valid_cats_dir = os.path.join(valid_dir, 'cats')
-#os.mkdir(valid_cats_dir)
+os.mkdir(valid_cats_dir)
 valid_dogs_dir = os.path.join(valid_dir, 'dogs')
-#os.mkdir(valid_dogs_dir)
+os.mkdir(valid_dogs_dir)
 test_cats_dir = os.path.join(test_dir, 'cats')
-#os.mkdir(test_cats_dir)
+os.mkdir(test_cats_dir)
 test_dogs_dir = os.path.join(test_dir, 'dogs')
-#os.mkdir(test_dogs_dir)
+os.mkdir(test_dogs_dir)
 
 fnames = ['cat.{}.jpg'.format(i) for i in range(1000)]
 for fname in fnames:

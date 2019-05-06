@@ -138,6 +138,7 @@ model.compile(loss='binary_crossentropy',optimizer=optimizers.RMSprop(lr=1e-4),
 train_datagen = ImageDataGenerator(rescale=1./255)
 test_datagen = ImageDataGenerator(rescale=1./255)
 
+# batches are 20 samples, so it will take 100 batches until you seeyour target of 2,000 samples
 train_generator = train_datagen.flow_from_directory(train_dir,
                                                     target_size=(150, 150),
                                                     batch_size=20,
@@ -147,6 +148,9 @@ valid_generator = test_datagen.flow_from_directory(valid_dir,
                                                    batch_size=20,
                                                    class_mode='binary')
 
+# steps_per_epoch: after having drawn 100 batches from the generator, 
+# or alternatively, after run for 100 gradient descent steps, the fitting process will go to the next epoch.
+# validation_steps behave similarly
 history = model.fit_generator(train_generator, 
                               steps_per_epoch=100,
                               epochs=30,

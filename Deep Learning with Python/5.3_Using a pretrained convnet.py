@@ -104,3 +104,19 @@ plt.title('Training and validation loss')
 plt.legend()
 plt.show()
 
+
+
+##################################################################################
+##### Adding a densely connected classifier on top of the convolutional base #####
+##################################################################################
+
+model = models.Sequential()
+model.add(conv_base)
+model.add(layers.Flatten())
+model.add(layers.Dense(256, activation='relu'))
+model.add(layers.Dense(1, activation='sigmoid'))
+
+# data augmentation
+train_datagen = ImageDataGenerator(rescale=1./255, rotation_range=40, width_shift_range=0.2, height_shift_range=0.2, shear_range=0.2,
+                                   zoom_range=0.2, horizontal_flip=True, fill_mode='nearest')
+test_datagen = ImageDataGenerator(rescale=1./255, 

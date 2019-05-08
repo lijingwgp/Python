@@ -33,9 +33,9 @@ conv_base.summary()
 
 
 
-##############################################################
-##### Extracting features using the pretrained conv base #####
-##############################################################
+########################################################################
+##### Option 1: Extracting features using the pretrained conv base #####
+########################################################################
 
 def extract_features(directory, sample_count):
     features = np.zeros(shape=(sample_count, 4, 4, 512))
@@ -68,12 +68,7 @@ train_features = np.reshape(train_features, (2000,4*4*512))
 valid_features = np.reshape(valid_features, (1000,4*4*512))
 test_features = np.reshape(test_features, (1000,4*4*512))
 
-
-
-##################################################################
-##### Defining the training the densely connected classifier #####
-##################################################################
-
+# Defining and training the densely connected classifier
 model = models.Sequential()
 model.add(layers.Dense(256, activation='relu', input_dim=4* 4 * 512))
 model.add(layers.Dropout(0.5))
@@ -106,9 +101,9 @@ plt.show()
 
 
 
-##################################################################################
-##### Adding a densely connected classifier on top of the convolutional base #####
-##################################################################################
+############################################################################################
+##### Option 2: Adding a densely connected classifier on top of the convolutional base #####
+############################################################################################
 
 model = models.Sequential()
 model.add(conv_base)
@@ -116,7 +111,31 @@ model.add(layers.Flatten())
 model.add(layers.Dense(256, activation='relu'))
 model.add(layers.Dense(1, activation='sigmoid'))
 
+model.compile(optimizer=optimizers.RMSprop(lr=2e-5),
+              loss='binary_crossentropy',
+              metrics=['acc'])
+
 # data augmentation
 train_datagen = ImageDataGenerator(rescale=1./255, rotation_range=40, width_shift_range=0.2, height_shift_range=0.2, shear_range=0.2,
                                    zoom_range=0.2, horizontal_flip=True, fill_mode='nearest')
-test_datagen = ImageDataGenerator(rescale=1./255, 
+valid_datagen = ImageDataGenerator(rescale=1./255)
+
+# actual training
+train_generator = train_datagen.flow_from_directory(
+  train_dir,
+  target_size = (150,150)
+  batch_size = 20,
+  class_mode = 'binary')
+
+valid_generator = valid_datagen.flow_from_directory(
+  valid_dir,
+  target_size = (150, 150)
+  batch_size = 20,
+  class_mode = 'binary')
+
+history = model.fit_generator(
+  train_generator,
+  steps_per_epoch = 100,
+  epochs = 30,
+  validation_data = valid_generator,
+  validation_steps = 50)

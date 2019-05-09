@@ -209,6 +209,7 @@ for batch in datagen.flow(x, batch_size=1):
     i+=1
     if i%4==0:
         break
+
 plt.show()
 
 

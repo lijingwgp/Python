@@ -9,3 +9,4 @@ pip install -U pip virtualenv
 virtualenv --system-site-packages -p python3 ./venv
 .\venv\Scripts\activate
 deactivate
+source ./venv/bin/activate  # sh, bash, ksh, or zsh

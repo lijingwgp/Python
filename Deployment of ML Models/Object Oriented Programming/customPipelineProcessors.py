@@ -52,7 +52,6 @@ class FeaturePreparer:
         for var in numerical:
             if len(self.raw_data[var].unique()) < 20:
                 self.discrete.append(var)
-
         print('There are {} discrete variables'.format(len(self.discrete)))
 
         self.continuous = [

@@ -93,8 +93,7 @@ class FeaturePreparer:
 
         # replace the labels in data to be passed to model
         self.prepared_data[variable] = np.where(self.prepared_data[variable].isin(frequent_cat),
-                                          self.prepared_data[variable],
-                                     'Rare')
+                                          self.prepared_data[variable], 'Rare')
 
 
     def encode_categorical_variables(self, *, var, target, training: bool = False) -> None:

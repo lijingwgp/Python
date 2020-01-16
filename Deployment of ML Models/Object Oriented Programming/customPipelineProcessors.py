@@ -42,7 +42,7 @@ class FeaturePreparer:
 
         # find numerical variables
         # this should be done based off training data, i.e., self.raw_data
-        numerical = [var for var in self.raw_data.columns
+        self.numerical = [var for var in self.raw_data.columns
                      if self.raw_data[var].dtype != 'O']
         print('There are {} numerical variables'.format(len(numerical)))
 

@@ -108,7 +108,7 @@ class FeaturePreparer:
 
 
     def prepare_data(self, training: bool = False):
-        # This is the method where we capture  all the parameters during training,
+        # This is the method where we capture all the parameters during training,
         # from the training set, 
         # then we will use this parameters to transform future data as we get it
         # from our API

@@ -36,7 +36,7 @@ class FeaturePreparer:
         # this should be done based off training data, i.e., self.raw_data
         self.categorical = [
             var for var in self.raw_data.columns
-            if self.war_data[var].dtype == 'O'
+            if self.raw_data[var].dtype == 'O'
         ]
         print('There are {} categorical variables'.format(len(self.categorical)))
 

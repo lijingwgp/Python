@@ -194,7 +194,7 @@ parameters = {
      'min_samples_split': (2, 4, 8),
      'min_samples_leaf': (16, 4, 12)
 }
-clf = GridSearchCV(RandomForestClassifier(), parameters, cv=5, n_jobs=8)
+clf = GridSearchCV(RandomForestClassifier(), parameters, cv=5, n_jobs=-1)
 clf.fit(x_train, y_train)
 clf.best_score_, clf.best_params_
 

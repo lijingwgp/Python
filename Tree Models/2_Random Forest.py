@@ -17,7 +17,6 @@ import matplotlib.pyplot as plt
 from plotnine import *
 from sklearn.preprocessing import LabelEncoder
 from sklearn_pandas import DataFrameMapper
-from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import confusion_matrix
 from sklearn.model_selection import GridSearchCV

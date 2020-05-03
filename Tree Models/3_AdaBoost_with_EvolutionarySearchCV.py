@@ -190,7 +190,8 @@ clf2.fit(x_train, y_train)
 # We see a significant improvement in our results with an accuracy of 87.06% 
 # on the testing data
 
-aclf = AdaBoostClassifier(max_depth=4, max_features=11, min_samples_leaf=4, min_samples_split=2, n_estimators=100, learning_rate=0.1)
+aclf = AdaBoostClassifier(DecisionTreeClassifier(max_depth=4, max_features=11, min_samples_leaf=4, min_samples_split=2), 
+                          n_estimators=100, learning_rate=0.1)
 aclf.fit(x_train, y_train)
 aclf.score(x_test, y_test)
 

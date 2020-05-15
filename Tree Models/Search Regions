@@ -1,4 +1,0 @@
-max_depths = np.linspace(1, 32, 32, endpoint=True)
-min_samples_splits = np.linspace(0.1, 1.0, 10, endpoint=True)
-min_samples_leafs = np.linspace(0.1, 0.5, 5, endpoint=True)
-max_features = list(range(1,train.shape[1]))

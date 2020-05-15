@@ -1,10 +1,7 @@
 model = XGBClassifier(silent=False,objective=‘binary:logistic’,n_estimators=400)
-eval_set=[(X_train, y_train), (X_test, y_test)]
-model.fit(X_train, y_train, eval_metric=[“auc”,“error”,“logloss”], eval_set=eval_set, verbose=True)
-
 eval_set = [(X_train, y_train), (X_test, y_test)]
 eval_metric = ["auc","error"]
-%time model.fit(X_train, y_train, eval_metric=eval_metric, eval_set=eval_set, verbose=True)
+model.fit(X_train, y_train, eval_metric=eval_metric, eval_set=eval_set, verbose=True)
 
 
 param_grid = {

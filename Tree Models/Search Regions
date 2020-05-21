@@ -1,0 +1,7 @@
+params = {'learning_rate': list(np.logspace(np.log10(0.005), np.log10(0.5), base = 10, num = 1000)), 
+          'n_estimators': list(range(50, 500)),
+          'subsample': list(np.linspace(0.5, 1, 100)),
+          'min_samples_split': list(range(2, 100)), 
+          'min_samples_leaf': list(range(1, 20)),
+          'max_depth': list(range(3, 11))
+         }

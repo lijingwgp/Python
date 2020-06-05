@@ -105,7 +105,8 @@ to_drop = list(record_low_importance['feature'])
 #     data[col] = data[col].cat.codes
 #     # convert the categorical codes to categorical
 #     data[col] = pd.Categorical(data[col])
-# # to remember which columns are categorical
+#
+# # To remember which columns are categorical
 # cat_cols = [i for i,v in enumerate(data.dtypes) if str(v) == 'category']
 # x_train, x_test, y_train, y_test = train_test_split(data,labels,test_size=.2,random_state=314,stratify=labels)
 # 

@@ -11,6 +11,6 @@ setup(name='distributions',
       version='0.1',
       description='Gaussian distributions',
       packages=['distributions'],
-      author='Jing Li,
+      author='Jing Li',
       author_email='lijingwgp@yahoo.com',
       zip_safe=False)

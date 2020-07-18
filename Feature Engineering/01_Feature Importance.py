@@ -16,6 +16,7 @@ data = pd.read_csv('prepared.csv', low_memory=False)
 data['LEAD_STATUS'].replace('Stage 4 : Lead Closed Dismissed', 1, inplace=True)
 data['LEAD_STATUS'].replace('Stage 5 : On Hold', 2, inplace=True)
 data['LEAD_STATUS'].replace('Stage 6 : Converted', 3, inplace=True)
+
 labels = data['LEAD_STATUS']
 data = data.drop(['Unnamed: 0','LEAD_STATUS'], axis=1)
 
@@ -28,10 +29,10 @@ one_hot_features = [column for column in features.columns if column not in base_
 data_all = pd.concat([features[one_hot_features], data], axis = 1)
 
 # Extract feature names
-feature_names = list(data.columns)
+feature_names = list(data_all.columns)
 
 # Convert to np array
-data = np.array(data)
+data = np.array(data_all)
 labels = np.array(labels).reshape((-1, ))
 
 # Empty array for feature importances

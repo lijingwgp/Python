@@ -79,11 +79,3 @@ clf = cb.CatBoostClassifier(**bestparams)
 clf.fit(train_set, np.ravel(train_label), cat_features=cat_dims)
 res = clf.predict(test_set)
 print('error:',1-np.mean(res==np.ravel(test_label)))
-
-
-
-
-
-
-
-

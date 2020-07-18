@@ -177,7 +177,7 @@ lclf.score(x_test, y_test)
 # This results in test accuracy of 86.8%.    
 # Given this library also has many parameters, similar to XGBoost, we need to use a similar strategy 
 # of tuning in stages. First we will fix learning rate to a reasonable value of 0.1 and number of 
-# estimators = 200, and tune only the major tree building parameters
+# estimators to be 200, then tune only the major tree building parameters
     
 independent_params = {
     'seed': 32,

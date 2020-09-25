@@ -195,6 +195,7 @@ train_removed = fs.remove(methods = 'all')
 # or
 train_no_missing_zero = fs.remove(methods = ['missing', 'zero_importance'])
 
+
 ### handling one-hot features
 # If we look at the dataframe that is returned, we may notice several new columns 
 # that were not in the original data. These are created when the data is one-hot 

@@ -1,8 +1,0 @@
-# 1
-profile_new_2.groupby('rfm_segments').info_or_promo.value_counts()
-
-# 2
-profile_new_2.groupby('rfm_segments').info_or_promo.apply(lambda x:x.mode())
-
-# 3
-profile_new.groupby('rfm_segments').agg(lambda x:x.value_counts().index[0])

@@ -1,0 +1,34 @@
+import pandas as pd
+import numpy as np
+from sklearn.tree import DecisionTreeClassifier
+
+data = pd.read_csv('/datasets/heart.csv')
+features = data.drop(['target'], axis=1)
+target = data['target']
+
+scores = []
+
+# set the block size if there are only three of them
+sample_size = int(len(data)/3)
+
+for i in range(0, len(data), sample_size):
+    indices = np.arange(len(data))
+    start, stop = i, i + sample_size
+    
+    valid_indexes = data.index[start:stop]
+    valid_mask = np.zeros(len(data), dtype = np.bool)
+    valid_mask[valid_indexes] = True
+    
+    train_indexes = indices[np.logical_not(valid_mask)]
+    
+    features_train, target_train = features.loc[train_indexes], target.loc[train_indexes]
+    features_valid, target_valid = features.loc[valid_indexes], target.loc[valid_indexes]
+
+    model = DecisionTreeClassifier(random_state=0)
+    model = model.fit(features_train, target_train)
+    score = model.score(features_valid, target_valid)
+    
+    scores.append(score)
+ 
+final_score = sum(scores) / len(scores)   
+print('Average model quality score:', final_score)
